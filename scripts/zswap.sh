@@ -2,6 +2,13 @@
 # 一键优化：Linux Mint 22.2 (Ubuntu 24.04) + 16GB AI 满载专用
 # 强制 lz4 + 25% 池 + swappiness=100
 
+# Ensure running as root
+if [ "$EUID" -ne 0 ]; then
+    echo "Error: Please run as root (use sudo)."
+    exit 1
+fi
+
+
 set -e
 
 echo "检测到 Linux Mint 22.2，启动一键优化..."
