@@ -95,6 +95,22 @@ if grep -q "# custom alias" "$BASHRC_FILE" 2>/dev/null; then
         print_info "别名 lzd 已存在"
     fi
     
+    if ! grep -q 'alias tts=' "$BASHRC_FILE" 2>/dev/null; then
+        sed -i '/# custom alias/a alias tts='\''cd /mnt/github/index-tts && bash run_webui.sh'\''' "$BASHRC_FILE"
+        print_success "已添加别名: tts"
+        ALIAS_ADDED=true
+    else
+        print_info "别名 tts 已存在"
+    fi
+    
+    if ! grep -q 'alias comfy=' "$BASHRC_FILE" 2>/dev/null; then
+        sed -i '/# custom alias/a alias comfy='\''cd /mnt/github/ComfyUI && bash run.sh'\''' "$BASHRC_FILE"
+        print_success "已添加别名: comfy"
+        ALIAS_ADDED=true
+    else
+        print_info "别名 comfy 已存在"
+    fi
+    
     if [ "$ALIAS_ADDED" = false ]; then
         print_info "所有别名已存在"
     fi
@@ -104,6 +120,8 @@ else
     echo 'alias adult="cd /mnt/dnas/data/adult/; pwd"' >> "$BASHRC_FILE"
     echo 'alias ytd='"'"'yt-dlp -f "bestvideo+bestaudio/best" -o "~/Videos/ytb-down/%(title)s.%(ext)s"'"'" >> "$BASHRC_FILE"
     echo 'alias lzd='"'"'lazydocker'"'" >> "$BASHRC_FILE"
+    echo 'alias tts='"'"'cd /mnt/github/index-tts && bash run_webui.sh'"'" >> "$BASHRC_FILE"
+    echo 'alias comfy='"'"'cd /mnt/github/ComfyUI && bash run.sh'"'" >> "$BASHRC_FILE"
     print_success "已添加所有自定义别名"
     NEED_SEPARATOR=true
 fi
@@ -160,7 +178,7 @@ fi
 echo -e "\n${BLUE}=== 配置摘要 ===${NC}"
 echo -e "${GREEN}已完成的配置：${NC}"
 echo "  • UV_CACHE_DIR 环境变量"
-echo "  • 自定义别名 (adult, ytd, lzd)"
+echo "  • 自定义别名 (adult, ytd, lzd, tts, comfy)"
 echo "  • uv shell completion"
 echo "  • 自定义提示符样式"
 
