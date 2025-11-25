@@ -260,11 +260,11 @@ UUID=$BTRFS_UUID /var/cache      btrfs   subvol=@cache,noatime,ssd,compress=zstd
 UUID=$SWAP_UUID  none            swap    sw              0 0
 
 # ssd
-UUID=cb6285a3-5e94-4376-a9fc-38b10c28d40e /mnt/github btrfs rw,noatime,ssd,compress=zstd:3,discard=async,space_cache=v2,subvol=/@github 0 0
-UUID=cb6285a3-5e94-4376-a9fc-38b10c28d40e /mnt/data btrfs rw,noatime,ssd,compress=zstd:3,discard=async,space_cache=v2,subvol=/@data 0 0
+# UUID=cb6285a3-5e94-4376-a9fc-38b10c28d40e /mnt/github btrfs rw,noatime,ssd,compress=zstd:3,discard=async,space_cache=v2,subvol=/@github 0 0
+# UUID=cb6285a3-5e94-4376-a9fc-38b10c28d40e /mnt/data btrfs rw,noatime,ssd,compress=zstd:3,discard=async,space_cache=v2,subvol=/@data 0 0
 
 # dnas
-10.10.10.2:/fs/1000/nfs /mnt/dnas nfs vers=4,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=3,_netdev,noatime 0 0
+# 10.10.10.2:/fs/1000/nfs /mnt/dnas nfs vers=4,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=3,_netdev,noatime 0 0
 
 EOF
 
